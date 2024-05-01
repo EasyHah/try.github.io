@@ -7,18 +7,18 @@
     <title>Combined Page</title>
     <style>
         .empty-line {
-            height: 2rem; /* 设置空行的高度为20像素 */
-            width: 100%; /* 使空行充满整个宽度 */
+            height: 2rem; 
+            width: 100%; 
         }
         .page1 {
-            height: 100vh; /* 设置每个页面的高度为视口高度，使其占据整个屏幕 */
+            height: 100vh; /* 设置每个页面的高度为视口高度*/
             overflow-y: scroll; /* 启用垂直滚动条 */
             scroll-behavior: smooth; /* 平滑滚动效果 */
         }
         .page2 {
             height: 100vh; /* 设置每个页面的高度为视口高度，使其占据整个屏幕 */
-            overflow-y: scroll; /* 启用垂直滚动条 */
-            scroll-behavior: smooth; /* 平滑滚动效果 */
+            overflow-y: scroll; 
+            scroll-behavior: smooth; 
         }
         #scrollButton {
         display: block;
@@ -29,16 +29,12 @@
 }
 .content1 {
       position: absolute; /* 设置绝对定位 */
-      top: 75rem; /* 距离父元素顶部的距离 */
-      right: 5rem; /* 距离父元素左侧的距离 */
+      right: 3rem; /* 距离父元素左侧的距离 */
       width: 35rem; /* 设置宽度 */
     }
 
     .img1 {
-        position: absolute; /* 设置绝对定位 */
-        top: 70rem; /* 距离父元素顶部的距离 */
-        left: 6rem; /* 距离父元素左侧的距离 */
-        width: 60%; /* 设置宽度 */
+        position: relative; /* 设置绝对定位 */
         width: 50rem;
         height: 40rem;
     }
@@ -78,6 +74,8 @@
     <img class="img1" src="images/挠力河2.png">
 </div>
 <script>
+  var viewportHeight = window.innerHeight;
+document.querySelector(".content1").style.top = (50+viewportHeight) + "px";
     function scrollToBottom() {
   var scrollHeight = document.body.scrollHeight;
   var currentScroll = window.scrollY;
@@ -86,7 +84,7 @@
   var speed = distance / 250; // 设置滚动速度
 
   function scrollStep() {
-    if (window.scrollY < 940) {
+    if (window.scrollY < Math.max(document.body.clientHeight, document.documentElement.clientHeight)) {
       window.scrollTo(0, window.scrollY + speed);
       setTimeout(scrollStep, timeInterval);
     }else{

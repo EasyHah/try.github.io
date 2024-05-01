@@ -7,22 +7,22 @@
     <title>Combined Page</title>
     <style>
         .empty-line {
-            height: 2rem; /* 设置空行的高度为20像素 */
-            width: 100%; /* 使空行充满整个宽度 */
+            height: 2rem; 
+            width: 100%; 
         }
         .page1 {
-            height: 100vh; /* 设置每个页面的高度为视口高度，使其占据整个屏幕 */
-            overflow-y: scroll; /* 启用垂直滚动条 */
-            scroll-behavior: smooth; /* 平滑滚动效果 */
+            height: 100vh; /* 设置每个页面的高度为视口高度 */
+            overflow-y: scroll; 
+            scroll-behavior: smooth; 
         }
         .page2 {
-            height: 100vh; /* 设置每个页面的高度为视口高度，使其占据整个屏幕 */
-            overflow-y: scroll; /* 启用垂直滚动条 */
-            scroll-behavior: smooth; /* 平滑滚动效果 */
+            height: 100vh; 
+            overflow-y: scroll; 
+            scroll-behavior: smooth; 
         }
         #startButton {
     display: block;
-    margin: 10rem auto 0; /* 设置顶部边距为10rem，左右边距自动调整，使按钮水平居中 */
+    margin: 2rem auto 0;
     font-size: 24px;
     padding: 20px 40px;
     border: 2px solid white;
@@ -39,10 +39,11 @@
         #scrollButton {
         display: block;
         position: absolute;
-        bottom: 20px; /* 距离底部 20px */
-        left: 50%; /* 将左侧位置设置为页面宽度的一半 */
-        transform: translateX(-50%); /* 使用transform将元素水平居中 */
+        bottom: 20px; 
+        left: 50%; 
+        transform: translateX(-50%); /* 将元素水平居中 */
 }
+
     </style>
 </head>
 <body>
@@ -88,7 +89,7 @@
   var speed = distance / 250; // 设置滚动速度
 
   function scrollStep() {
-    if (window.scrollY < 940) {
+    if (window.scrollY < Math.max(document.body.clientHeight, document.documentElement.clientHeight)) {
       window.scrollTo(0, window.scrollY + speed);
       setTimeout(scrollStep, timeInterval);
     }else{
@@ -101,13 +102,6 @@
   scrollStep();
 
 }
-    /*
-    function scrollToBottom() {
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
-}*/
     function redirectToSelectionPage() {
         window.location.href = "开始界面.html";
     }
